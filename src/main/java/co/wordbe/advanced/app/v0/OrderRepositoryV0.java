@@ -1,4 +1,4 @@
-package co.wordbe.advanced.v0;
+package co.wordbe.advanced.app.v0;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
