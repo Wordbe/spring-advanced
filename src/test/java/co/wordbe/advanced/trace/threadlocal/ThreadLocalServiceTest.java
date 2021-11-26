@@ -1,12 +1,13 @@
 package co.wordbe.advanced.trace.threadlocal;
 
 import co.wordbe.advanced.trace.threadlocal.code.FieldService;
+import co.wordbe.advanced.trace.threadlocal.code.ThreadLocalService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
 @Slf4j
-public class FieldServiceTest {
-    private FieldService fieldService = new FieldService();
+public class ThreadLocalServiceTest {
+    private ThreadLocalService fieldService = new ThreadLocalService();
 
     @Test
     void field() {
