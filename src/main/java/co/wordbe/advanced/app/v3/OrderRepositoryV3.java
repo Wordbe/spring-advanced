@@ -1,8 +1,7 @@
-package co.wordbe.advanced.app.v2;
+package co.wordbe.advanced.app.v3;
 
-import co.wordbe.advanced.trace.TraceId;
 import co.wordbe.advanced.trace.TraceStatus;
-import co.wordbe.advanced.trace.hellotrace.HelloTraceV2;
+import co.wordbe.advanced.trace.logtrace.LogTrace;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
@@ -10,13 +9,13 @@ import org.springframework.stereotype.Repository;
 @Slf4j
 @Repository
 @RequiredArgsConstructor
-public class OrderRepositoryV2 {
-    private final HelloTraceV2 trace;
+public class OrderRepositoryV3 {
+    private final LogTrace trace;
 
-    public void save(TraceId traceId, String itemId) {
+    public void save(String itemId) {
         TraceStatus status = null;
         try {
-            status = trace.beginSync(traceId, "OrderRepositoryV2.save()");
+            status = trace.begin("OrderRepositoryV3.save()");
             // 저장 로직
             if ("ex".equals(itemId)) {
                 throw new IllegalStateException("예외 발생");

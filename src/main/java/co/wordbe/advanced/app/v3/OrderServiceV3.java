@@ -1,22 +1,21 @@
-package co.wordbe.advanced.app.v2;
+package co.wordbe.advanced.app.v3;
 
-import co.wordbe.advanced.trace.TraceId;
 import co.wordbe.advanced.trace.TraceStatus;
-import co.wordbe.advanced.trace.hellotrace.HelloTraceV2;
+import co.wordbe.advanced.trace.logtrace.LogTrace;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class OrderServiceV2 {
-    private final OrderRepositoryV2 orderRepositoryV2;
-    private final HelloTraceV2 trace;
+public class OrderServiceV3 {
+    private final OrderRepositoryV3 orderRepositoryV2;
+    private final LogTrace trace;
 
-    public void orderItem(TraceId traceId, String itemId) {
+    public void orderItem(String itemId) {
         TraceStatus status = null;
         try {
-            status = trace.beginSync(traceId, "OrderServiceV2.orderItem()");
-            orderRepositoryV2.save(status.getTraceId(), itemId);
+            status = trace.begin("OrderServiceV3.orderItem()");
+            orderRepositoryV2.save(itemId);
             trace.end(status);
         } catch (Exception e) {
             trace.exception(status, e);
