@@ -1,5 +1,8 @@
 package co.wordbe.advanced.trace.template;
 
+import co.wordbe.advanced.trace.template.code.AbstractTemplate;
+import co.wordbe.advanced.trace.template.code.SubClassLogic1;
+import co.wordbe.advanced.trace.template.code.SubClassLogic2;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
@@ -30,5 +33,14 @@ public class TemplateMethodTest {
         long endTime = System.currentTimeMillis();
         long elapsedTime = endTime - startTime;
         log.info("elapsedTime = {}", elapsedTime);
+    }
+
+    @Test
+    void templateMethodV1() {
+        AbstractTemplate template1 = new SubClassLogic1();
+        template1.execute();
+
+        AbstractTemplate template2 = new SubClassLogic2();
+        template2.execute();
     }
 }
