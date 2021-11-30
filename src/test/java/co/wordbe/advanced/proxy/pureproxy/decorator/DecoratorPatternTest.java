@@ -1,9 +1,6 @@
 package co.wordbe.advanced.proxy.pureproxy.decorator;
 
-import co.wordbe.advanced.proxy.pureproxy.decorator.code.Component;
-import co.wordbe.advanced.proxy.pureproxy.decorator.code.DecoratorPatternClient;
-import co.wordbe.advanced.proxy.pureproxy.decorator.code.MessageDecorator;
-import co.wordbe.advanced.proxy.pureproxy.decorator.code.RealComponent;
+import co.wordbe.advanced.proxy.pureproxy.decorator.code.*;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
@@ -22,6 +19,15 @@ public class DecoratorPatternTest {
         Component realComponent = new RealComponent();
         Component messageDecorator = new MessageDecorator(realComponent);
         DecoratorPatternClient client = new DecoratorPatternClient(messageDecorator);
+        client.execute();
+    }
+
+    @Test
+    void decorator_chain() {
+        Component realComponent = new RealComponent();
+        Component messageDecorator = new MessageDecorator(realComponent);
+        Component timeDecorator = new TimeDecorator(messageDecorator);
+        DecoratorPatternClient client = new DecoratorPatternClient(timeDecorator);
         client.execute();
     }
 }
