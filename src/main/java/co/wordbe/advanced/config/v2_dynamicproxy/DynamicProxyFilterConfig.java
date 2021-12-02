@@ -1,7 +1,6 @@
 package co.wordbe.advanced.config.v2_dynamicproxy;
 
 import co.wordbe.advanced.app.proxy.v1.*;
-import co.wordbe.advanced.config.v2_dynamicproxy.handler.LogTraceBasicHandler;
 import co.wordbe.advanced.config.v2_dynamicproxy.handler.LogTraceFilterHandler;
 import co.wordbe.advanced.trace.logtrace.LogTrace;
 import org.springframework.context.annotation.Bean;
