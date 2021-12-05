@@ -5,6 +5,7 @@ import co.wordbe.advanced.config.v2_dynamicproxy.DynamicProxyBasicConfig;
 import co.wordbe.advanced.config.v2_dynamicproxy.DynamicProxyFilterConfig;
 import co.wordbe.advanced.config.v3_proxyfactory.ProxyFactoryConfigV1;
 import co.wordbe.advanced.config.v3_proxyfactory.ProxyFactoryConfigV2;
+import co.wordbe.advanced.config.v4_postprocessor.BeanPostProcessorConfig;
 import co.wordbe.advanced.trace.logtrace.LogTrace;
 import co.wordbe.advanced.trace.logtrace.ThreadLocalLogTrace;
 import org.springframework.boot.SpringApplication;
@@ -19,7 +20,8 @@ import org.springframework.context.annotation.Import;
 //@Import(DynamicProxyBasicConfig.class)
 //@Import(DynamicProxyFilterConfig.class)
 //@Import(ProxyFactoryConfigV1.class)
-@Import(ProxyFactoryConfigV2.class)
+//@Import(ProxyFactoryConfigV2.class)
+@Import(BeanPostProcessorConfig.class)
 @SpringBootApplication(scanBasePackages = "co.wordbe.advanced.app.proxy")
 public class AdvancedApplication {
 
